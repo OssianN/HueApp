@@ -1,0 +1,17 @@
+{
+  "name": "newHueApp3",
+  "displayName": "newHueApp3",
+  "expo": {
+    "name": "newHueApp3",
+    "slug": "newHueApp3",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
