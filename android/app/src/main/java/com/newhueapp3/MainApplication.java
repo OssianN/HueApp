@@ -26,6 +26,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
+import com.BV.LinearGradient.LinearGradientPackage;
+import iyegoroff.RNTextGradient.RNTextGradientPackage;
+
 
 public class MainApplication extends Application implements ReactApplication {
   private final ReactModuleRegistryProvider mModuleRegistryProvider = new ReactModuleRegistryProvider(
@@ -38,11 +41,25 @@ public class MainApplication extends Application implements ReactApplication {
       return BuildConfig.DEBUG;
     }
 
+    protected List getPackages() {
+      // Add additional packages you require here
+      // No need to add RnnPackage and MainReactPackage
+      return Arrays.asList(
+      // eg. new VectorIconsPackage()
+      new LinearGradientPackage(),
+      new RNI18nPackage(),
+      new SvgPackage(),
+      new RNTextGradientPackage()
+      );
+      }
+
     @Override
     protected List<ReactPackage> getPackages() {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
+      new LinearGradientPackage(),
       return packages;
+
     }
 
     @Override

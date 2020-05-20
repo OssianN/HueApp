@@ -35,7 +35,8 @@ target 'newHueApp3' do
   pod 'DoubleConversion', :podspec => "#{rnPrefix}/third-party-podspecs/DoubleConversion.podspec"
   pod 'glog', :podspec => "#{rnPrefix}/third-party-podspecs/glog.podspec"
   pod 'Folly', :podspec => "#{rnPrefix}/third-party-podspecs/Folly.podspec"
-
+  pod 'RNTextGradientView',
+  :path => "../node_modules/react-native-text-gradient/RNTextGradientView.podspec"
   # Other native modules
 
   # Automatically detect installed unimodules
