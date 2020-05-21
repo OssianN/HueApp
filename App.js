@@ -2,10 +2,12 @@ import * as React from 'react';
 import { State, ScrollView } from 'react-native-gesture-handler';
 import { render } from 'react-dom';
 
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TouchableOpacity} from 'react-native';
+import { StyleSheet, Button, MaskedViewIOS, View, SafeAreaView, Text, Alert, TouchableOpacity} from 'react-native';
 import Slider from "azir-slider";
-import { LinearTextGradient } from "react-native-text-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import normalize from 'react-native-normalize';
+
 import Light from './Classes/Light'
 import ScenesView from './Views/ScenesView';
 import LightsView from './Views/LightsView';
@@ -13,10 +15,12 @@ import LightsView from './Views/LightsView';
 
 const backgroundLight = '#f8fbff';
 const username = "EGKL4PklIflKjqvqNJZOs7FlyM26b71kIQexvODh";
-var lights = [new Light("1", 1, 10, 10, true, 50),
-  new Light("2", 2, 40, 890, true, 90),
-  new Light("3", 3, 160, 9000, true, 200),
-  new Light("4", 4, 255, 26044, true, 255)
+
+/* hårdprogrammera lamporna.. ska synca med bridge */
+var lights = [new Light("LightStips", 1, 10, 10, true, 50),
+  new Light("Globe", 2, 40, 890, true, 90),
+  new Light("Window", 3, 160, 9000, true, 200),
+  new Light("Bedside", 4, 255, 26044, true, 255)
 ]
 var timestamp = Date.now()
 
@@ -41,52 +45,52 @@ export default class App extends React.Component {
 
 
     return (
-      <SafeAreaView style={styles.container}>
-        <ScrollView>
-        <View style={styles.allContent}>
-      <View
-      style={styles.title}>
-        <Text
-        style={styles.titleText}
-        >hellue</Text>
-      </View>
+      <LinearGradient colors={['white', '#eeefff']} style={styles.linear}>
+        <SafeAreaView style={styles.container}>
+          <ScrollView>
+            <View style={styles.allContent}>
+              <View
+                style={styles.title}>
+                <Text style={styles.title}>hellue</Text>
+              </View>
 
-      <ScenesView></ScenesView>
-  <View margin={25}></View>      
-      <LightsView onBrightnesChange={(value, light) => this.onBrightnesChange(value, light)} lights={this.state.lights}></LightsView>
+              <ScenesView></ScenesView>
 
-        </View>
-        </ScrollView>
-      </SafeAreaView>
+              <View margin={25}></View>   
+
+              <LightsView onBrightnesChange={(value, light) => this.onBrightnesChange(value, light)} lights={this.state.lights}></LightsView>
+            
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </LinearGradient>
   );
   }
 }
 
 
 
-
-
-
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: backgroundLight,
-    height: '100%',
+    resizeMode: 'cover',
+    
   },
-  allContent: {
-    marginHorizontal: 26,
+  allContent: {  
+    alignItems: 'center',
+    flex: 1,
+    resizeMode: 'cover',
+    alignItems: 'center',
+  },
+  linear: {
+    flex: 1,
   },
 title: {
-  marginBottom: 50,
+  marginTop: 5,
+  marginBottom: 20,
   justifyContent: 'center',
-  },
-  titleText: {
-    fontSize: 25,
-    justifyContent: 'center',
-    textAlign: 'center',
-    color: '#0044ff',
+  fontSize: 25,
+  fontWeight: '200',
+  color: '#0044ff',
   },
 });

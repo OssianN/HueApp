@@ -4,6 +4,7 @@ import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TouchableOpacity} 
 import Slider from "azir-slider";
 import { LinearGradient } from 'expo-linear-gradient';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import normalize from 'react-native-normalize';
 
 const backgroundLight = '#f8fbff';
 const topShadowLight = '#ffffff'
@@ -38,6 +39,18 @@ export const NeuMorph3 = ({children}) => {
     <View style={styles.topShadow}>
       <View style={styles.bottomShadow}>
         <View style={styles.inner3}>
+          {children}
+        </View>
+      </View>
+    </View>
+  )
+}
+
+export const NeuMorph4 = ({children}) => {
+  return (
+    <View style={styles.topShadow}>
+      <View style={styles.bottomShadow}>
+        <View style={styles.inner4}>
           {children}
         </View>
       </View>
@@ -91,53 +104,33 @@ title: {
   separator: {
     marginVertical: 10,
   },
-  track: {
-    width: 265,
-    height: 20,
-    backgroundColor: backgroundLight,
-    borderRadius: 20,
-  },
-  thumb: {
-    marginLeft: -3,
-    marginRight: -3,
-    height: 25,
-    width: 25,
-    backgroundColor: '#0044ff',
-      shadowOffset: {
-        width: -3,
-        height: -3,
-      },
-      shadowOpacity: 1,
-      shadowRadius: 3,
-      shadowColor: topShadowLight,
-
-      shadowOffset: {
-        width: 4,
-        height: 1,
-      },
-      shadowOpacity: 1,
-      shadowRadius: 3,
-      shadowColor: bottomShadowLight,
-  },
   inner: {
     justifyContent: 'center',
-    textAlign: 'right',
     alignItems: 'center',
-    color: 'blue',
     height: 25,
     width: 25,
     borderRadius: 20,
-    margin: 15,
-  },
+    marginLeft: 5,
+    backgroundColor: backgroundLight
+    },
   inner2: {
     backgroundColor: backgroundLight,
     justifyContent: 'center',
-    borderColor: backgroundLight,
     borderRadius: 20,
+    width: normalize(320),
   },
   inner3: {
     marginTop: 10,
     marginBottom: 10,
+    flex: 9,
+  },
+  inner4: {
+    backgroundColor: backgroundLight,
+    justifyContent: 'center',
+    color: 'blue',
+    height: 60,
+    width: 60,
+    borderRadius: 50,
   },
   sceneSlider: {
     flexDirection: 'row',
@@ -156,11 +149,11 @@ title: {
   },
   bottomShadow: {
     shadowOffset: {
-      width: 4,
-      height: 4,
+      width: 3,
+      height: 3,
     },
     shadowOpacity: 1,
-    shadowRadius: 4,
+    shadowRadius: 1,
     shadowColor: bottomShadowLight,
   },
 });

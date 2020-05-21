@@ -4,6 +4,10 @@ import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TouchableOpacity} 
 import Slider from "azir-slider";
 import { LinearTextGradient } from "react-native-text-gradient";
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { LinearGradient } from 'expo-linear-gradient';
+
+import {NeuMorph, NeuMorph2, NeuMorph3, NeuMorph4} from '../Components/NeuMorph';
+
 
 const backgroundLight = '#f8fbff';
 const topShadowLight = '#ffffff'
@@ -13,8 +17,12 @@ export default class SceneButton extends React.Component {
     render() {
       return (
         <View style={styles.sceneView}>
-          <NeuMorph4 flex={1}>
-            <TouchableOpacity>
+          <NeuMorph4>
+            <TouchableOpacity style={styles.sceneButton}>
+              <LinearGradient start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}} colors={['#fafaff00', '#fafaff88']} style={styles.colorPick}>
+              <View style={styles.innerButton} backgroundColor={'#0044ff'}></View>
+              <View></View>
+              </LinearGradient>
             </TouchableOpacity>
           </NeuMorph4>
           <Text style={styles.sceneTitle}>
@@ -25,27 +33,7 @@ export default class SceneButton extends React.Component {
     }
   }
 
-const NeuMorph4 = ({children}) => {
-    return (
-      <View style={styles.topShadow}>
-        <View style={styles.bottomShadow}>
-          <View style={styles.inner4}>
-            {children}
-          </View>
-        </View>
-      </View>
-    )
-  }
-
   const styles = StyleSheet.create({
-  inner4: {
-    backgroundColor: backgroundLight,
-    justifyContent: 'center',
-    color: 'blue',
-    height: 60,
-    width: 60,
-    borderRadius: 50,
-  },
   sceneView: {
     justifyContent: 'center',
     alignContent: 'center',
@@ -58,7 +46,19 @@ const NeuMorph4 = ({children}) => {
     borderColor: 'transparent',
     marginBottom: 15,
   },
-
+  sceneButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
+  },
+  colorPick: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+  },
+  innerButton: {
+    width: 30
+  },
   topShadow: {
     shadowOffset: {
       width: -4,

@@ -6,6 +6,9 @@ import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TouchableOpacity} 
 import Slider from "azir-slider";
 import { LinearTextGradient } from "react-native-text-gradient";
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import normalize from 'react-native-normalize';
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 const backgroundLight = '#f8fbff';
 const topShadowLight = '#ffffff'
@@ -18,6 +21,8 @@ export default class ScenesView extends React.Component {
     render() {
         return (
         <NeuMorph2>
+            <LinearGradient colors={['#fafaff', '#f5f5ff']} style={styles.linear}>
+
             <View style={styles.topScene}>
                 <Text style={styles.fixToText}>
                 Scenes
@@ -36,11 +41,10 @@ export default class ScenesView extends React.Component {
             <SceneButton></SceneButton>
             <SceneButton></SceneButton>
             <SceneButton></SceneButton>
-            
             </View>
             
             <View style={styles.sceneSlider}>
-                <View flexDirection={'row'} flex={9}>
+                <View>
                     <NeuMorph3>
                         <Slider
                         progressTrackColor={'#0044ff'}
@@ -50,46 +54,28 @@ export default class ScenesView extends React.Component {
                     </NeuMorph3>
                 </View>
 
-            <NeuMorph >
-                <View flexDirection={'row'} flex={1}>
-                <TouchableOpacity>
-                <View 
-                    width={20} 
-                    height={20} 
-                    backgroundColor={'blue'} 
-                    borderRadius={20} 
-                    alignItems={'center'}
-                    >
-                    </View>
-                </TouchableOpacity> 
-                </View>
-            </NeuMorph>
+                <NeuMorph>
+                    <TouchableOpacity>
+                        <View style={styles.colorPick}>
+                        </View>
+                    </TouchableOpacity> 
+                </NeuMorph>
             </View>
 
+            </LinearGradient>
         </NeuMorph2>
         )
     }
   }
 
   const styles = StyleSheet.create({
-    container: {
-      backgroundColor: backgroundLight,
-      height: '100%',
-      overflow: 'scroll',
-    },
-    allContent: {
-      marginHorizontal: 30,
-    },
-  title: {
-    marginBottom: 50,
-    justifyContent: 'center',
-    },
-    titleText: {
-      fontSize: 25,
-      justifyContent: 'center',
-      textAlign: 'center',
-      color: '#0044ff',
-    },
+    colorPick: {
+        width: 17,
+        height: 17,
+        backgroundColor: 'blue',
+        borderRadius: 20,
+        alignItems: 'center',
+      },
     fixToText: {
       textAlign: 'left',
       marginTop: 15,
@@ -97,32 +83,28 @@ export default class ScenesView extends React.Component {
       marginLeft: 15,
       fontSize: 25,
       textAlign: 'center',
-      margin: 10,
       color: '#0044ff',
     },
     topScene: {
       marginBottom: 20,
       flexDirection: 'row',
       justifyContent: "space-between",
+      alignItems: 'center',
+      marginRight: 15,
     },
+    linear: {
+        borderRadius: 20
+      },
     sceneList: {
       justifyContent: "center",
       flexWrap: 'wrap',    
       flexDirection: "row",
     },
-    topLights: {
-      flexDirection: 'row',
-      justifyContent: "space-between",
-    },
-    separator: {
-      marginVertical: 10,
-    },
     track: {
-        flexDirection: 'row',
-      height: 20,
-      width: 260,
-      backgroundColor: backgroundLight,
-      borderRadius: 20,
+        width: normalize(265),
+        height: 20,
+        backgroundColor: backgroundLight,
+        borderRadius: 20,
     },
     thumb: {
       marginLeft: -3,
@@ -146,52 +128,9 @@ export default class ScenesView extends React.Component {
         shadowRadius: 3,
         shadowColor: bottomShadowLight,
     },
-    inner: {
-        flexDirection: 'row',
-      justifyContent: 'center',
-      textAlign: 'right',
-      alignItems: 'center',
-      color: 'blue',
-      height: 25,
-      width: 25,
-      borderRadius: 20,
-      margin: 15,
-    },
-    inner2: {
-      backgroundColor: backgroundLight,
-      justifyContent: 'center',
-      borderColor: backgroundLight,
-      borderRadius: 20,
-      flexDirection: 'row',
-     
-    },
-    inner3: {
-        flexDirection: 'row',
-        marginTop: 10,
-        marginBottom: 10,
-    },
     sceneSlider: {
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'space-between',
       marginLeft: 15,
-    },
-    topShadow: {
-      shadowOffset: {
-        width: -4,
-        height: -4,
-      },
-      shadowOpacity: 1,
-      shadowRadius: 2,
-      shadowColor: topShadowLight,
-    },
-    bottomShadow: {
-      shadowOffset: {
-        width: 4,
-        height: 4,
-      },
-      shadowOpacity: 1,
-      shadowRadius: 4,
-      shadowColor: bottomShadowLight,
     },
   });
