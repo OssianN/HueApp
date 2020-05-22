@@ -145,6 +145,7 @@ title: {
     },
     shadowOpacity: 1,
     shadowRadius: 2,
+    elevation: 1,
     shadowColor: topShadowLight,
   },
   bottomShadow: {
@@ -153,7 +154,8 @@ title: {
       height: 3,
     },
     shadowOpacity: 1,
-    shadowRadius: 1,
+    shadowRadius: 3,
+    elevation: 1,
     shadowColor: bottomShadowLight,
   },
 });

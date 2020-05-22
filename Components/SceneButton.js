@@ -66,6 +66,7 @@ export default class SceneButton extends React.Component {
     },
     shadowOpacity: 1,
     shadowRadius: 2,
+    elevation: 1,
     shadowColor: topShadowLight,
   },
   bottomShadow: {
@@ -75,6 +76,7 @@ export default class SceneButton extends React.Component {
     },
     shadowOpacity: 1,
     shadowRadius: 4,
+    elevation: 1,
     shadowColor: bottomShadowLight,
   },
 })
