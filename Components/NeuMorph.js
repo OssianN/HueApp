@@ -3,7 +3,6 @@ import React from 'react';
 import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TouchableOpacity} from 'react-native';
 import Slider from "azir-slider";
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import normalize from 'react-native-normalize';
 
 const backgroundLight = '#f8fbff';

@@ -2,8 +2,6 @@ import React from 'react';
 
 import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TouchableOpacity} from 'react-native';
 import Slider from "azir-slider";
-import { LinearTextGradient } from "react-native-text-gradient";
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import {NeuMorph, NeuMorph2, NeuMorph3, NeuMorph4} from '../Components/NeuMorph';
@@ -19,9 +17,7 @@ export default class SceneButton extends React.Component {
         <View style={styles.sceneView}>
           <NeuMorph4>
             <TouchableOpacity style={styles.sceneButton}>
-              <LinearGradient start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}} colors={['#fafaff00', '#fafaff88']} style={styles.colorPick}>
-              <View style={styles.innerButton} backgroundColor={'#0044ff'}></View>
-              <View></View>
+              <LinearGradient start={{x: 0.0, y: 0.25}} end={{x: 0.8, y: 1.0}} colors={['#0044ff', '#fafaff88']} style={styles.colorPick}>
               </LinearGradient>
             </TouchableOpacity>
           </NeuMorph4>

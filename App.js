@@ -5,12 +5,12 @@ import { render } from 'react-dom';
 import { StyleSheet, Button, MaskedViewIOS, View, SafeAreaView, Text, Alert, TouchableOpacity} from 'react-native';
 import Slider from "azir-slider";
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import normalize from 'react-native-normalize';
 
 import Light from './Classes/Light'
 import ScenesView from './Views/ScenesView';
 import LightsView from './Views/LightsView';
+import NavBar from './Components/NavBar';
 
 
 const backgroundLight = '#f8fbff';
@@ -49,17 +49,16 @@ export default class App extends React.Component {
         <SafeAreaView style={styles.container}>
           <ScrollView>
             <View style={styles.allContent}>
+              
+              
               <View
                 style={styles.title}>
                 <Text style={styles.title}>hellue</Text>
               </View>
 
-              <ScenesView></ScenesView>
+              <NavBar></NavBar>
 
-              <View margin={25}></View>   
 
-              <LightsView onBrightnesChange={(value, light) => this.onBrightnesChange(value, light)} lights={this.state.lights}></LightsView>
-            
             </View>
           </ScrollView>
         </SafeAreaView>
