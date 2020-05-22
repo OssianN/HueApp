@@ -1,6 +1,9 @@
+import 'react-native-gesture-handler';
 import * as React from 'react';
 import { State, ScrollView } from 'react-native-gesture-handler';
 import { render } from 'react-dom';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { StyleSheet, Button, MaskedViewIOS, View, SafeAreaView, Text, Alert, TouchableOpacity} from 'react-native';
 import Slider from "azir-slider";
@@ -45,10 +48,12 @@ export default class App extends React.Component {
 
 
     return (
+      <NavigationContainer>
       <LinearGradient colors={['white', '#eeefff']} style={styles.linear}>
         <SafeAreaView style={styles.container}>
           <ScrollView>
             <View style={styles.allContent}>
+
               <View
                 style={styles.title}>
                 <Text style={styles.title}>hellue</Text>
@@ -64,6 +69,7 @@ export default class App extends React.Component {
           </ScrollView>
         </SafeAreaView>
       </LinearGradient>
+      </NavigationContainer>
   );
   }
 }
