@@ -24,7 +24,7 @@ export default class SceneButton extends React.Component {
             </TouchableOpacity>
           </NeuMorph4>
           <Text style={styles.sceneTitle}>
-            Scene
+            Scenex
           </Text>
         </View>
       )
@@ -43,6 +43,11 @@ export default class SceneButton extends React.Component {
     borderWidth: 8, 
     borderColor: 'transparent',
     marginBottom: 15,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center'
+
   },
   sceneButton: {
     alignItems: 'center',
@@ -53,6 +58,10 @@ export default class SceneButton extends React.Component {
     width: 44,
     height: 44,
     borderRadius: 22,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center'
   },
   innerButton: {
     width: 30

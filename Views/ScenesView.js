@@ -20,6 +20,7 @@ var timestamp = Date.now()
 export default class ScenesView extends React.Component {
     render() {
         return (
+          <View>
         <NeuMorph2>
             <LinearGradient colors={['#fafaff', '#f5f5ff']} style={styles.linear}>
 
@@ -61,9 +62,10 @@ export default class ScenesView extends React.Component {
                     </TouchableOpacity> 
                 </NeuMorph>
             </View>
-
+            
             </LinearGradient>
         </NeuMorph2>
+        <Text></Text></View>
         )
     }
   }
@@ -105,6 +107,7 @@ export default class ScenesView extends React.Component {
         height: 20,
         backgroundColor: backgroundLight,
         borderRadius: 20,
+        elevation: 3,
     },
     thumb: {
       marginLeft: -3,
@@ -112,6 +115,7 @@ export default class ScenesView extends React.Component {
       height: 25,
       width: 25,
       backgroundColor: '#0044ff',
+      elevation: 4,
         shadowOffset: {
           width: -3,
           height: -3,

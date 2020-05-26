@@ -10,67 +10,70 @@ import Slider from "azir-slider";
 import { LinearGradient } from 'expo-linear-gradient';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import normalize from 'react-native-normalize';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Ionicons } from '@expo/vector-icons';
 
 import Light from './Classes/Light'
 import ScenesView from './Views/ScenesView';
 import LightsView from './Views/LightsView';
+import Home from './Components/Home';
+import LightsComponent from './Components/LightsComponent';
+import SceneComponent from './Components/SceneComponent';
+import Settings from './Components/Settings';
 
+import { NeuMorph, NeuMorph2, NeuMorph3 } from './Components/NeuMorph';
 
+const bottomShadowLight = '#d4e2ff';
 const backgroundLight = '#f8fbff';
-const username = "EGKL4PklIflKjqvqNJZOs7FlyM26b71kIQexvODh";
 
-/* hårdprogrammera lamporna.. ska synca med bridge */
-var lights = [new Light("LightStips", 1, 10, 10, true, 50),
-  new Light("Globe", 2, 40, 890, true, 90),
-  new Light("Window", 3, 160, 9000, true, 200),
-  new Light("Bedside", 4, 255, 26044, true, 255)
-]
-var timestamp = Date.now()
+const username = "EGKL4PklIflKjqvqNJZOs7FlyM26b71kIQexvODh";
+const Tab = createBottomTabNavigator();
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props) 
-    this.state={username:username, lights:lights}
-  }
-  
-  onBrightnesChange(value, light){
-    var newLights = this.state.lights
-    newLights[light.index - 1].bri = value
-    this.setState({
-      lights: newLights
-    })
-    console.log()
-    this.state.lights[light.index - 1].changeBrightness("10.0.1.2", username)
-  }
-
 
   render() {
 
-
     return (
       <NavigationContainer>
-      <LinearGradient colors={['white', '#eeefff']} style={styles.linear}>
-        <SafeAreaView style={styles.container}>
-          <ScrollView>
-            <View style={styles.allContent}>
-
-              <View
-                style={styles.title}>
-                <Text style={styles.title}>hellue</Text>
-              </View>
-
-              <ScenesView></ScenesView>
-
-              <View margin={25}></View>   
-
-              <LightsView onBrightnesChange={(value, light) => this.onBrightnesChange(value, light)} lights={this.state.lights}></LightsView>
-            
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </LinearGradient>
+        <Tab.Navigator 
+          screenOptions={({route}) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+              if(route.name === 'Home') {
+                iconName = focused ? 'home' : 'home';
+              } else if (route.name === 'Lights') {
+                iconName = focused ? 'lightbulb-o' : 'lightbulb-o';
+              } else if (route.name === 'Scenes') {
+                iconName = focused ? 'circle-o' : 'circle-o';
+              } else if (route.name === 'Settings') {
+                iconName = focused ? 'gear' : 'gear';
+              }
+              return <Icon name={iconName} size={30} color={color}/>
+            }
+          })}
+          tabBarOptions={{
+            style: {
+              shadowOffset: {
+                height: 3,
+                width: 3,
+              },
+              shadowOpacity: 1,
+              shadowRadius: 2,
+              shadowColor: 'black',
+            },
+            activeTintColor: 'blue',
+            inactiveTintColor: 'gray',
+          }}
+        >
+          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Lights" component={LightsComponent} />
+          <Tab.Screen name="Scenes" component={SceneComponent} />
+          <Tab.Screen name="Settings" component={Settings} />
+        </Tab.Navigator>
+        <View style={styles.navView}>
+        </View>
       </NavigationContainer>
-  );
+    )
   }
 }
 
@@ -80,7 +83,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     resizeMode: 'cover',
-    
   },
   allContent: {  
     alignItems: 'center',
@@ -91,12 +93,17 @@ const styles = StyleSheet.create({
   linear: {
     flex: 1,
   },
-title: {
-  marginTop: 5,
-  marginBottom: 20,
-  justifyContent: 'center',
-  fontSize: 25,
-  fontWeight: '200',
-  color: '#0044ff',
+  title: {
+    marginTop: 5,
+    marginBottom: 20,
+    justifyContent: 'center',
+    fontSize: 25,
+    fontWeight: '200',
+    color: '#0044ff',
+  },
+  navView: {
+    height: 110,
+    position: 'absolute'
+    
   },
 });

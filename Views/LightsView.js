@@ -66,6 +66,7 @@ export default class LightsView extends React.Component {
   }
 
     return (
+      <View>
     <NeuMorph2>
       <LinearGradient colors={['#fafaff', '#f5f5ff']} style={styles.linear}>
           <View style={styles.topLights}>
@@ -76,6 +77,7 @@ export default class LightsView extends React.Component {
           {items}
           </LinearGradient>
     </NeuMorph2>
+    <Text></Text></View>
     )
   }
  }
@@ -117,12 +119,15 @@ const styles = StyleSheet.create({
     height: 20,
     backgroundColor: backgroundLight,
     borderRadius: 20,
+    elevation: 2,
+
   },
   thumb: {
     marginLeft: -3,
     height: 25,
     width: 25,
     backgroundColor: backgroundLight,
+    elevation: 4,
     shadowOpacity: 1,
     shadowRadius: 3,
     shadowOffset: {
