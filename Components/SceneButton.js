@@ -14,11 +14,19 @@ const topShadowLight = '#ffffff'
 const bottomShadowLight = '#d4e2ff';
 
 export default class SceneButton extends React.Component {
+  constructor(props) {
+    super(props) 
+  }
+  onPress(index){
+    this.props.onPress(index)
+  }
+
+
     render() {
       return (
         <View style={styles.sceneView}>
           <NeuMorph4>
-            <TouchableOpacity style={styles.sceneButton}>
+            <TouchableOpacity style={styles.sceneButton} onPress={(index) => this.onPress(this.props.index)}>
               <LinearGradient start={{x: 0.0, y: 0.5}} end={{x: 0.5, y: 1.2}} colors={['#0044ff', '#fafaff88']} style={styles.colorPick}>
               </LinearGradient>
             </TouchableOpacity>

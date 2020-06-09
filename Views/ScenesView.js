@@ -18,7 +18,21 @@ const username = "EGKL4PklIflKjqvqNJZOs7FlyM26b71kIQexvODh";
 var timestamp = Date.now()
 
 export default class ScenesView extends React.Component {
+  constructor(props) {
+    super(props) 
+  }
+  onSceneChange(index){
+    this.props.onSceneChange(index)
+  }
+  
     render() {
+      var sceneitems = []
+      console.log(this.props.scenes.length)
+      for(let i = 0; i < this.props.scenes.length; i++){
+        sceneitems.push(<SceneButton onPress={(index) => this.onSceneChange(index)} index={i}></SceneButton>
+        )
+        console.log("hej")
+      }
         return (
           <View>
         <NeuMorph2>
@@ -38,10 +52,7 @@ export default class ScenesView extends React.Component {
             </View>
 
             <View style={styles.sceneList}>
-            <SceneButton></SceneButton>
-            <SceneButton></SceneButton>
-            <SceneButton></SceneButton>
-            <SceneButton></SceneButton>
+            {sceneitems}
             </View>
             
             <View style={styles.sceneSlider}>

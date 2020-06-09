@@ -37,6 +37,7 @@ export default class LightsView extends React.Component {
         <View flexDirection={'row'} alignItems={'center'}>
           <NeuMorph3>
                 <Slider
+                value={this.props.lights[i].bri}
                 step={1}
                 minimumValue={0}
                 maximumValue={255}

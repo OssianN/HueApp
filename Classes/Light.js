@@ -12,12 +12,12 @@ export default class Light {
     async changeBrightness (ip, username) {
         await fetch('http://'+ ip +'/api/' + username + '/lights/'+ this.index +'/state' , {
             method: 'PUT',
-            body: JSON.stringify({"on":true, "bri":this.bri})
+            body: JSON.stringify({"on":true, "bri":this.bri, "hue":this.hue, "sat":this.sat})
           })
             .then(response => response.json())
             .then(data =>  console.log(data))
             .catch((error) => {
               console.error('Error:', error);
             });
-        }
+    }
 }
