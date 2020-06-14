@@ -27,11 +27,9 @@ export default class ScenesView extends React.Component {
   
     render() {
       var sceneitems = []
-      console.log(this.props.scenes.length)
       for(let i = 0; i < this.props.scenes.length; i++){
         sceneitems.push(<SceneButton onPress={(index) => this.onSceneChange(index)} index={i}></SceneButton>
         )
-        console.log("hej")
       }
         return (
           <View>

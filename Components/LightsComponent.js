@@ -39,7 +39,6 @@ export default class LightsComponent extends React.Component {
         this.setState({
           lights: newLights
         })
-        console.log()
         this.state.lights[light.index - 1].changeBrightness("10.0.1.2", username)
       }
     

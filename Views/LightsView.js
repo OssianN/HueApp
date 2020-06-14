@@ -29,7 +29,7 @@ export default class LightsView extends React.Component {
 
   render() {
     const items = []
-    console.log(this.props.lights)
+
     for(let i = 0; i < this.props.lights.length; i++){
 
     items.push(
@@ -37,7 +37,7 @@ export default class LightsView extends React.Component {
         <View flexDirection={'row'} alignItems={'center'}>
           <NeuMorph3>
                 <Slider
-                value={this.props.lights[i].bri}
+                value={0}
                 step={1}
                 minimumValue={0}
                 maximumValue={255}

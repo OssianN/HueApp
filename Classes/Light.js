@@ -15,7 +15,7 @@ export default class Light {
             body: JSON.stringify({"on":true, "bri":this.bri, "hue":this.hue, "sat":this.sat})
           })
             .then(response => response.json())
-            .then(data =>  console.log(data))
+            .then(data =>  {return(data)})
             .catch((error) => {
               console.error('Error:', error);
             });

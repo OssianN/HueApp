@@ -4,7 +4,6 @@ import { State, ScrollView } from 'react-native-gesture-handler';
 import { render } from 'react-dom';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import { StyleSheet, Button, MaskedViewIOS, View, SafeAreaView, Text, Alert, TouchableOpacity} from 'react-native';
 import Slider from "azir-slider";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -54,7 +53,6 @@ export default class Home extends React.Component {
         this.setState({
           lights: newLights
         })
-        console.log()
         this.state.lights[light.index - 1].changeBrightness("10.0.1.2", username)
       }
 
@@ -75,6 +73,7 @@ export default class Home extends React.Component {
                         <View
                         style={styles.title}>
                         <Text style={styles.title}>hellue</Text>
+                        
                         </View>
 
                         <ScenesView onSceneChange={(index) => this.onSceneChange(index)} scenes={this.state.scenes}></ScenesView>
