@@ -74,7 +74,8 @@ export default class ScenesView extends React.Component {
             
             </LinearGradient>
         </NeuMorph2>
-        <Text></Text></View>
+        <Text></Text>
+        </View>
         )
     }
   }
@@ -145,5 +146,6 @@ export default class ScenesView extends React.Component {
       flexDirection: 'row',
       alignItems: 'center',
       marginLeft: 15,
+      marginBottom: 20,
     },
   });

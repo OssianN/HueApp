@@ -34,7 +34,12 @@ export default class LightsView extends React.Component {
 
     items.push(
       <View>
-        <View flexDirection={'row'} alignItems={'center'}>
+        <View flexDirection={'column'}>
+          <Text style={styles.lightName}>
+            {this.props.lights[i].name}
+          </Text>
+        </View>
+        <View flexDirection={'row'} alignItems={'center'} marginBottom={30}>
           <NeuMorph3>
                 <Slider
                 value={0}
@@ -57,28 +62,24 @@ export default class LightsView extends React.Component {
             </TouchableOpacity> 
           </NeuMorph>
         </View>
-        <View flexDirection={'column'}>
-        <Text style={styles.lightName}>
-          {this.props.lights[i].name}
-        </Text>
-      </View>
     </View>
     )
   }
 
     return (
       <View>
-    <NeuMorph2>
-      <LinearGradient colors={['#fafaff', '#f5f5ff']} style={styles.linear}>
-          <View style={styles.topLights}>
-            <Text style={styles.fixToText}>
-              Lights
-            </Text>
-          </View>
-          {items}
+        <NeuMorph2>
+          <LinearGradient colors={['#fafaff', '#f5f5ff']} style={styles.linear}>
+              <View style={styles.topLights}>
+                <Text style={styles.fixToText}>
+                  Lights
+                </Text>
+              </View>
+              {items}
           </LinearGradient>
-    </NeuMorph2>
-    <Text></Text></View>
+        </NeuMorph2>
+        <Text></Text>
+      </View>
     )
   }
  }
@@ -105,7 +106,6 @@ const styles = StyleSheet.create({
   lightName: {
     flex: 1,
     marginLeft: 15,
-    marginBottom: 10,
     color: 'blue',
   },
   linear: {

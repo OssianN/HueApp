@@ -140,11 +140,11 @@ title: {
   },
   topShadow: {
     shadowOffset: {
-      width: -4,
-      height: -4,
+      width: -9,
+      height: -9,
     },
     shadowOpacity: 1,
-    shadowRadius: 2,
+    shadowRadius: 6,
     elevation: 1,
     shadowColor: topShadowLight,
   },

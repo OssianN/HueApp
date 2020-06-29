@@ -27,8 +27,9 @@ export default class SceneButton extends React.Component {
         <View style={styles.sceneView}>
           <NeuMorph4>
             <TouchableOpacity style={styles.sceneButton} onPress={(index) => this.onPress(this.props.index)}>
-              <LinearGradient start={{x: 0.0, y: 0.5}} end={{x: 0.5, y: 1.2}} colors={['#0044ff', '#fafaff88']} style={styles.colorPick}>
-              </LinearGradient>
+              <View style={styles.colorPick}>
+              <View style={styles.colorCenter}></View>
+              </View>
             </TouchableOpacity>
           </NeuMorph4>
           <Text style={styles.sceneTitle}>
@@ -63,9 +64,20 @@ export default class SceneButton extends React.Component {
     flexDirection: 'row'
   },
   colorPick: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    backgroundColor: '#0044ff',
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center'
+  },
+  colorCenter: {
+    backgroundColor: backgroundLight,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     flexDirection: 'row',
     justifyContent: 'center',
     alignContent: 'center',

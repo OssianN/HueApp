@@ -19,7 +19,7 @@ const username = "EGKL4PklIflKjqvqNJZOs7FlyM26b71kIQexvODh";
 
 
 /* hårdprogrammera lamporna.. ska synca med bridge */
-var lights = [new Light("LightStips", 1, 10, 10, true, 50),
+var lights = [new Light("Stripe", 1, 10, 10, true, 50),
   new Light("Globe", 2, 40, 890, true, 90),
   new Light("Window", 3, 160, 9000, true, 200),
   new Light("Bedside", 4, 255, 26044, true, 255)
@@ -44,7 +44,7 @@ export default class LightsComponent extends React.Component {
     
     render() {
         return(
-            <LinearGradient colors={['white', '#eeefff']} style={styles.linear}>
+            <LinearGradient colors={['#f6f7ff', '#e9efff']} style={styles.linear}>
                 <SafeAreaView style={styles.container}>
                     <ScrollView>
                         <View style={styles.allContent}>

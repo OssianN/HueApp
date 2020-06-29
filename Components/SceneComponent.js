@@ -45,7 +45,7 @@ export default class SceneComponent extends React.Component {
     
     render() {
         return(
-            <LinearGradient colors={['white', '#eeefff']} style={styles.linear}>
+            <LinearGradient colors={['#f6f7ff', '#e9efff']} style={styles.linear}>
                 <SafeAreaView style={styles.container}>
                     <ScrollView>
                         <View style={styles.allContent}>
